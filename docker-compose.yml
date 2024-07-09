@@ -7,7 +7,7 @@ services:
       - POSTGRES_USER=gacho
       - POSTGRES_PASSWORD=admin123
     ports:
-      - 5432:5432
+      - "5432:5432"
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
 
@@ -19,6 +19,25 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=root
       - DATABASE_HOST=db
     ports:
-      - 5050:80
+      - "5050:80"
     depends_on:
       - postgres
+
+  mysql:
+    image: mysql:5
+    environment:
+      - MYSQL_DATABASE=db_gacho_store
+      - MYSQL_USER=root
+      - MYSQL_ROOT_PASSWORD=admin123
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_HOST=mysql
+      - MYSQL_ROOT_PASSWORD=admin123
+    ports:
+      - "8080:80"

@@ -10,12 +10,12 @@ const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
 
 // Crea la URI de conexión a la base de datos PostgreSQL usando las credenciales y detalles de la configuración.
-const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
+const URI = `mysql://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
 
 // Crea una instancia de Sequelize con la URI de conexión y especifica el dialecto como 'postgres'.
 // También habilita el registro (logging) de las consultas SQL ejecutadas.
 const sequelize = new Sequelize(URI, {
-  dialect: 'postgres',
+  dialect: 'mysql',
   logging: console.log,
 });
 setupModels(sequelize);
