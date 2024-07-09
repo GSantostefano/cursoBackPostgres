@@ -87,3 +87,6 @@ Para solucionar los problemas mencionados y seguir las recomendaciones de los co
     ```bash
     Usa las credenciales admin@mail.com y root para iniciar sesión.
     Al agregar un nuevo servidor en pgadmin, usa db como nombre del host.
+
+![Alt text](image-1.png)
+    ![Alt text](image.png)
