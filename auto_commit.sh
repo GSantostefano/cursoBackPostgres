@@ -19,6 +19,16 @@ else
     # Hacer commit con un mensaje predefinido
     git commit -m "Actualizado hello_world.txt con mensaje dinámico y actualizado auto_commit.sh"
 
+    # Asegurarse de que estamos en la rama main
+    CURRENT_BRANCH=$(git branch --show-current)
+    if [ "$CURRENT_BRANCH" != "main" ]; then
+        echo "Cambiando a la rama main"
+        git checkout main
+    fi
+
+    # Hacer pull antes de push para evitar conflictos
+    git pull origin main
+
     # Hacer push al repositorio remoto en la rama principal
     git push origin main
 fi
