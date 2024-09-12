@@ -196,3 +196,4 @@ postgres_data
 mysql_data
 # End of https://www.toptal.com/developers/gitignore/api/node,windows,linux,macos
 .vercel
+.env*.local
