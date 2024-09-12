@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
+    "dev": "nodemon api/index.js",
+    "start": "node api/index.js",
     "lint": "eslint",
     "migrations:generate": "sequelize-cli migration:generate --name",
     "migrations:run": "sequelize-cli db:migrate",
@@ -25,17 +25,18 @@
   },
   "dependencies": {
     "@hapi/boom": "^9.1.4",
+    "@vercel/node": "^3.2.14",
+    "@vercel/postgres": "^0.10.0",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "faker": "^5.5.3",
     "joi": "^17.4.2",
-    "mysql2": "^2.3.3",
-    "pg": "^8.7.1",
+    "pg": "^8.12.0",
     "pg-hstore": "^2.3.4",
     "sequelize": "^6.6.5"
   },
   "engines": {
-    "node": "14.x"
+    "node": "20.x"
   }
 }

@@ -1,11 +1,8 @@
-// Importa la clase Sequelize del paquete 'sequelize'.
 const { Sequelize } = require('sequelize');
-
-// Importa la configuración desde el archivo config.
 const { config } = require('./../config/config');
-
 const setupModels = require('./../db/models/index');
-// Codifica el nombre de usuario y la contraseña para que sean seguros para URL.
+
+
 const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
 
