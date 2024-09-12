@@ -1,21 +1,21 @@
 const express = require('express');
 const cors = require('cors');
-const routerApi = require('../routes');
-const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('../middlewares/error.handler');
+const routerApi = require('./routes');
+const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co', 'https://backpostgres-lza48tbqb-gabriel-santostefanos-projects.vercel.app', 'https://backpostgres.vercel.app'];
+const whitelist = ['http://localhost:8080', 'https://myapp.co', 'https://backpostgres.vercel.app'];
 
 const options = {
   origin: (origin, callback) => {
     if (whitelist.includes(origin) || !origin) {
       callback(null, true);
     } else {
-      callback(new Error('no permitido'));
+      callback(new Error('No permitido'));
     }
   }
 }
@@ -35,5 +35,9 @@ app.use(logErrors);
 app.use(ormErrorHandler);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
 
 module.exports = app;
