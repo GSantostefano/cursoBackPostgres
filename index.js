@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const routerApi = require('./routes');
+const routerApi = require('./routes');  // Asegúrate de que esta ruta sea correcta
 const { logErrors, errorHandler, boomErrorHandler, ormErrorHandler } = require('./middlewares/error.handler');
 
 const app = express();
@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = ['https://backpostgres-gsantostefano-gabriel-santostefanos-projects.vercel.app/', 'https://myapp.co', 'https://backpostgres.vercel.app'];
+const whitelist = ['https://backpostgres-gsantostefano-gabriel-santostefanos-projects.vercel.app', 'https://myapp.co', 'https://backpostgres.vercel.app'];
 
 const options = {
   origin: (origin, callback) => {
@@ -18,7 +18,7 @@ const options = {
       callback(new Error('No permitido'));
     }
   }
-}
+};
 app.use(cors(options));
 
 app.get('/', (req, res) => {
