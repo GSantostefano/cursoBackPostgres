@@ -8,7 +8,7 @@ const port = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const whitelist = ['http://localhost:8080', 'https://myapp.co', 'https://backpostgres.vercel.app'];
+const whitelist = ['http://backpostgres-j0zobes4r-gabriel-santostefanos-projects.vercel.app', 'https://myapp.co', 'https://backpostgres.vercel.app'];
 
 const options = {
   origin: (origin, callback) => {
